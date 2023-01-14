@@ -2,3 +2,6 @@ rootProject.name = 'SpringBootMSA'
 
 include 'discovery-service'
 include 'user-service'
+include 'first-service'
+include 'second-service'
+include 'gateway-service'
