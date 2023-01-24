@@ -8,9 +8,9 @@ import org.springframework.context.annotation.Configuration;
 /**
  * Created by peter on 2023/01/24
  */
-@Configuration
+//@Configuration
 public class FilterConfig {
-    @Bean
+//    @Bean
     public RouteLocator gatewayRoute(RouteLocatorBuilder locatorBuilder) {
         return locatorBuilder.routes()
                 .route(r -> r.path("/first-service/**")
