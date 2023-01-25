@@ -1,6 +1,8 @@
 package com.example.firstservice.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/first-service")
 public class FirstController {
+    private final Environment environment;
+
+    public FirstController(final Environment environment) {
+        this.environment = environment;
+    }
+
     @GetMapping("/welcome")
     public String welcome() {
         return "Welcome to the FirstService";
@@ -25,7 +33,10 @@ public class FirstController {
     }
 
     @GetMapping("/check")
-    public String check() {
-        return "Hi, this is first service check method";
+    public String check(HttpServletRequest request) {
+        log.info("Server PORT : {}", request.getServerPort());
+        return """
+                Hi, this is a message from First Service on PORT : %s 
+                """.formatted(environment.getProperty("local.server.port"));
     }
 }

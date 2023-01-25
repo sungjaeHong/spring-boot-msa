@@ -1,6 +1,8 @@
 package com.example.secondservice.controller;
 
+import jakarta.servlet.http.HttpServletRequest;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.core.env.Environment;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/second-service")
 public class SecondController {
+    private final Environment environment;
+
+    public SecondController(final Environment environment) {
+        this.environment = environment;
+    }
+
     @GetMapping("/welcome")
     public String welcome() {
         return "Welcome to the SecondService";
@@ -24,7 +32,10 @@ public class SecondController {
     }
 
     @GetMapping("/check")
-    public String check() {
-        return "Hi, this is second service check method";
+    public String check(HttpServletRequest request) {
+        log.info("Server PORT : {}", request.getServerPort());
+        return """
+                Hi, this is a message from Second Service on PORT : %s 
+                """.formatted(environment.getProperty("local.server.port"));
     }
 }
