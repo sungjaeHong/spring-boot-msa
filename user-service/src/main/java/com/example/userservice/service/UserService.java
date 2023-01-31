@@ -1,6 +1,6 @@
 package com.example.userservice.service;
 
-import com.example.userservice.entity.UserEntity;
+import com.example.userservice.repository.entity.UserEntity;
 import com.example.userservice.repository.UserRepository;
 import com.example.userservice.service.vo.CreateUserVo;
 import com.example.userservice.service.vo.UserVo;
