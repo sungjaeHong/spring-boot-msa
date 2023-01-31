@@ -30,6 +30,20 @@ dependencies {
     developmentOnly 'org.springframework.boot:spring-boot-devtools'
     annotationProcessor 'org.projectlombok:lombok'
     testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+    // validate
+    implementation 'org.hibernate.validator:hibernate-validator:8.0.0.Final'
+
+    // https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-data-jpa
+    implementation 'org.springframework.boot:spring-boot-starter-data-jpa:3.0.2'
+
+    //modelmapper
+    implementation 'org.modelmapper:modelmapper:3.1.1'
+
+
+    // database
+    implementation group: 'com.h2database', name: 'h2', version: '2.1.214'
+
 }
 
 dependencyManagement {
