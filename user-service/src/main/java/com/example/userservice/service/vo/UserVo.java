@@ -15,8 +15,6 @@ import java.time.ZonedDateTime;
 @NoArgsConstructor
 public class UserVo {
     private String email;
-    private String password;
-    private String encryptedPassword;
     private String name;
     private String userId;
     private ZonedDateTime createdAt;
