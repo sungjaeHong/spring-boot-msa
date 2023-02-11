@@ -21,6 +21,7 @@ public class UserService {
     private final ModelMapper modelMapper;
     private final UserRepository userRepository;
     public UserVo createUser(CreateUserVo createUserVo) {
+        // vo 가 null임....
         UserEntity user = modelMapper.map(createUserVo, UserEntity.class);
         user.setUserId(UUID.randomUUID().toString());
         user.setEncryptedPassword("encrypted_password");

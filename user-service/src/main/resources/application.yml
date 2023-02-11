@@ -11,6 +11,12 @@ eureka:
 spring:
   application:
     name: user-service
+  jpa:
+    database: h2
+    database-platform: org.hibernate.dialect.H2Dialect
+    generate-ddl: true
+    hibernate:
+      ddl-auto: create
   h2:
     console:
       enabled: true
