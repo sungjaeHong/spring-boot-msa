@@ -1,6 +1,7 @@
 package com.example.userservice.service.vo;
 
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.ZonedDateTime;
@@ -11,6 +12,7 @@ import java.time.ZonedDateTime;
 
 @Getter
 @Setter
+@NoArgsConstructor
 public class UserVo {
     private String email;
     private String password;
